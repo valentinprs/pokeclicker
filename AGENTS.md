@@ -13,6 +13,8 @@ In the main repo, translations are also referenced as a git submodule at:
 - Put gameplay/code/build changes in `pokeclicker`.
 - Put locale string changes in `pokeclicker-translations`.
 - If the submodule in `pokeclicker/src/translations` is used, keep it synced with `npm run tl:init` or `npm run tl:update`.
+- Never copy `../pokeclicker-translations/locales/*` into tracked files of `pokeclicker`.
+- `pokeclicker/src/translations` must stay a git submodule (gitlink), not a directory of versioned JSON files.
 
 ## Main repo commands (`pokeclicker`)
 
