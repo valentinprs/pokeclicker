@@ -221,7 +221,7 @@ gulp.task('scripts', () => {
     const osPathModulePrefix = convertPathToOS('../src/declarations');
 
     // Declarations for modules globally available as module namespaces (the JS kind) need to be wrapped in namespaces (the TS kind)
-    const globalModules = ['GameConstants.d.ts', 'pokemons/PokemonHelper.d.ts'].map(p => convertPathToOS(p));
+    const globalModules = ['GameConstants.d.ts', 'pokemons/PokemonHelper.d.ts', 'translation/LocationHelper.d.ts'].map(p => convertPathToOS(p));
     const globalModulesFilter = filter((vinylPath) => globalModules.some(modPath => vinylPath.relative.includes(modPath)), {restore: true});
 
     const generateDeclarations = base

@@ -10,7 +10,7 @@ class DefeatDungeonBossQuest extends Quest implements QuestInterface {
     }
 
     get defaultDescription() {
-        return `Defeat ${this.dungeonBoss} in ${this.dungeon}.`;
+        return `Defeat ${this.dungeonBoss} in ${LocationHelper.dungeonName(this.dungeon)}.`;
     }
 
     onLoad() {

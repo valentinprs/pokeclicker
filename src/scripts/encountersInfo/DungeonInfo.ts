@@ -20,7 +20,7 @@ class DungeonInfo {
     }
 
     private static getDungeonName() {
-        return player.town.name;
+        return LocationHelper.dungeonName(player.town.name);
     }
 
     private static getRegionName() {

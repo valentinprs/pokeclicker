@@ -1,5 +1,6 @@
 import * as GameConstants from '../GameConstants';
 import AchievementRequirement from './AchievementRequirement';
+import * as LocationHelper from '../translation/LocationHelper';
 
 export default class ClearGymRequirement extends AchievementRequirement {
     public gymIndex: number; // Gym name index in array GameConstants.RegionGyms.flat()
@@ -14,10 +15,11 @@ export default class ClearGymRequirement extends AchievementRequirement {
     }
 
     public hint(): string {
+        const gymTownName = LocationHelper.townName(GameConstants.RegionGyms.flat()[this.gymIndex]);
         if (this.requiredValue === 1) {
-            return `Requires the ${GameConstants.RegionGyms.flat()[this.gymIndex]} Gym to be completed.`;
+            return `Requires the ${gymTownName} Gym to be completed.`;
         }
-        return `Requires the ${GameConstants.RegionGyms.flat()[this.gymIndex]} Gym to be defeated ${this.requiredValue} times.`;
+        return `Requires the ${gymTownName} Gym to be defeated ${this.requiredValue} times.`;
     }
 
     public toString(): string {

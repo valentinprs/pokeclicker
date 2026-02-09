@@ -1,6 +1,7 @@
 import * as GameConstants from '../GameConstants';
 import RegionRoute from './RegionRoute';
 import SubRegions from '../subRegion/SubRegions';
+import * as LocationHelper from '../translation/LocationHelper';
 
 export default class Routes {
     public static regionRoutes: RegionRoute[] = [];
@@ -32,7 +33,7 @@ export default class Routes {
     public static getName(route: number, region: number, alwaysIncludeRegionName = false, includeSubRegionName = false): string {
         const regionName = GameConstants.camelCaseToString(GameConstants.Region[region]);
         let resultRoute = this.regionRoutes.find((routeData) => routeData.region === region && routeData.number === route);
-        let routeName = resultRoute?.routeName ?? 'Unknown Route';
+        let routeName = LocationHelper.routeName(resultRoute?.routeName ?? 'Unknown Route');
         if (alwaysIncludeRegionName && !routeName.includes(regionName)) {
             routeName += ` in ${regionName}`;
         } else if (includeSubRegionName && resultRoute) {

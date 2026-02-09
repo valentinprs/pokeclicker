@@ -105,7 +105,7 @@
           <table width="100%">
               <tr>
                 <td width="50%">
-                  <knockout data-bind="text: DungeonRunner.dungeon.name">Dungeon name</knockout>
+                  <knockout data-bind="text: LocationHelper.dungeonName(DungeonRunner.dungeon.name)">Dungeon name</knockout>
                   <!--If all Pokémon in the dungeon are caught or caught shiny-->
                   <knockout data-bind="if: DungeonRunner.dungeonCompleted(DungeonRunner.dungeon, false)">
                       <img class="pokeball-smallest"

@@ -305,7 +305,7 @@
                             <img src="assets/images/dungeons/encounter.png" height="25px" />
                             <span data-bind="text: `${DungeonRunner.encountersWon()}/${DungeonRunner.map.totalFights()}`"></span>
                         </div>
-                        <span data-bind="text: `${DungeonRunner.dungeon.name}`"></span>
+                        <span data-bind="text: LocationHelper.dungeonName(DungeonRunner.dungeon.name)"></span>
                         <!-- ko if: DungeonGuides.hired() -->
                         <a href="#dungeonGuidesDungeonModal" data-toggle="modal" data-bind="tooltip: {
                             title: `Attempts remaining: ${DungeonGuides.clears()}`,

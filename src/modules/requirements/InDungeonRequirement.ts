@@ -1,5 +1,6 @@
 import { AchievementOption } from '../GameConstants';
 import Requirement from './Requirement';
+import * as LocationHelper from '../translation/LocationHelper';
 
 export default class InDungeonRequirement extends Requirement {
     constructor(public dungeon: string, option = AchievementOption.more) {
@@ -12,7 +13,7 @@ export default class InDungeonRequirement extends Requirement {
 
     public hint(): string {
         return `You must be in the ${
-            this.dungeon
+            LocationHelper.dungeonName(this.dungeon)
         } dungeon`;
     }
 }

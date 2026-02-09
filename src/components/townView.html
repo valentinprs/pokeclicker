@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="d-flex justify-content-center px-2" style="font-size: 1.8rem;">
-                    <knockout data-bind="text: player.town.name">Town Name</knockout>
+                    <knockout data-bind="text: LocationHelper.anyLocationName(player.town.name)">Town Name</knockout>
                 </div>
 
                 <div class="title-right" data-bind="if: isDungeon && QuestLineHelper.isQuestLineCompleted('Tutorial Quests')">

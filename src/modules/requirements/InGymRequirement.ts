@@ -1,5 +1,6 @@
 import { AchievementOption } from '../GameConstants';
 import Requirement from './Requirement';
+import * as LocationHelper from '../translation/LocationHelper';
 
 export default class InGymRequirement extends Requirement {
     constructor(public gymTown: string, option = AchievementOption.more) {
@@ -12,7 +13,7 @@ export default class InGymRequirement extends Requirement {
 
     public hint(): string {
         return `You must be in the ${
-            this.gymTown
+            LocationHelper.townName(this.gymTown)
         } gym.`;
     }
 }

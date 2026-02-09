@@ -1,5 +1,6 @@
 import * as GameConstants from '../GameConstants';
 import AchievementRequirement from './AchievementRequirement';
+import * as LocationHelper from '../translation/LocationHelper';
 
 export default class ClearDungeonRequirement extends AchievementRequirement {
     public dungeonIndex: number; // Dungeon name index in array GameConstants.RegionDungeons.flat()
@@ -14,10 +15,11 @@ export default class ClearDungeonRequirement extends AchievementRequirement {
     }
 
     public hint(): string {
+        const dungeonName = LocationHelper.dungeonName(GameConstants.RegionDungeons.flat()[this.dungeonIndex]);
         if (this.requiredValue === 1) {
-            return `${GameConstants.RegionDungeons.flat()[this.dungeonIndex]} needs to be completed.`;
+            return `${dungeonName} needs to be completed.`;
         }
-        return `${GameConstants.RegionDungeons.flat()[this.dungeonIndex]} needs to be completed ${this.requiredValue} times.`;
+        return `${dungeonName} needs to be completed ${this.requiredValue} times.`;
     }
 
     public toString(): string {

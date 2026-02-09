@@ -114,7 +114,7 @@ class MoveToDungeon extends TownContent {
         return 'btn btn-secondary';
     }
     public text(): string {
-        return this.dungeon.name;
+        return LocationHelper.dungeonName(this.dungeon.name);
     }
     public isVisible(): boolean {
         return this.visibleRequirement?.isCompleted() ?? true;
@@ -145,7 +145,7 @@ class MoveToTown extends TownContent {
         return 'btn btn-secondary';
     }
     public text(): string {
-        return this.townName;
+        return LocationHelper.townName(this.townName);
     }
     public isVisible(): boolean {
         return this.visibleRequirement?.isCompleted() ?? true;

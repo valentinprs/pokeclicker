@@ -5,7 +5,7 @@ class GameController {
     static showMapTooltip(tooltipText: string) {
         if (tooltipText) {
             const tooltip = $('#mapTooltip');
-            tooltip.text(tooltipText);
+            tooltip.text(LocationHelper.anyLocationName(tooltipText));
             tooltip.css('visibility', 'visible');
         }
     }
