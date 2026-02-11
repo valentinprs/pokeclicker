@@ -232,6 +232,7 @@ import GenericDeal, { DealCostOrProfitType } from './deal/GenericDeal';
 import areaStatus from './enums/AreaStatus';
 import TranslationHelper from './translation/TranslationHelper';
 import * as LocationHelper from './translation/LocationHelper';
+import UiTranslation from './translation/UiTranslation';
 import * as DownloadUtil from './utilities/DownloadUtil';
 
 Object.assign(<any>window, {
@@ -480,5 +481,6 @@ Object.assign(<any>window, {
     areaStatus,
     TranslationHelper,
     LocationHelper,
+    UiTranslation,
     DownloadUtil,
 });

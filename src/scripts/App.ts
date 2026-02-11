@@ -42,6 +42,7 @@ class App {
             document.body.className = 'no-select';
             ko.applyBindings(App.game);
             GameLoadState.updateLoadState(GameLoadState.states.appliedBindings);
+            (window as any).UiTranslation?.initialize();
 
             Preload.hideSplashScreen();
 

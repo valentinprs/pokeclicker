@@ -8,6 +8,7 @@ let player;
  * Start the application when all html elements are loaded.
  */
 document.addEventListener('DOMContentLoaded', () => {
+    (window as any).UiTranslation?.initialize();
     try {
         Settings.loadDefault();
         document.body.className = `no-select ${Settings.getSetting('theme').observableValue()} ${Settings.getSetting('backgroundImage').observableValue()}`;
