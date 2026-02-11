@@ -72,12 +72,18 @@ export default class Translate {
                 fallbackNS: 'pokemon',
                 fallbackLng: 'en',
                 backend: {
-                    // Two backend sources - tries the TRANSLATION_URL first, falls back to copy taken at build time
+                    // Two backend sources - in development, prioritize local copied files to test submodule updates.
+                    // Chained backend falls back by namespace (not key), so order matters for partially translated files.
                     backends: [HttpBackend, HttpBackend],
-                    backendOptions: [
-                        { loadPath: `${translationsUrlOverride ?? '$TRANSLATIONS_URL'}/locales/{{lng}}/{{ns}}.json` },
-                        { loadPath: './locales/{{lng}}/{{ns}}.json' },
-                    ],
+                    backendOptions: GameHelper.isDevelopmentBuild() && translationsUrlOverride == null
+                        ? [
+                            { loadPath: './locales/{{lng}}/{{ns}}.json' },
+                            { loadPath: '$TRANSLATIONS_URL/locales/{{lng}}/{{ns}}.json' },
+                        ]
+                        : [
+                            { loadPath: `${translationsUrlOverride ?? '$TRANSLATIONS_URL'}/locales/{{lng}}/{{ns}}.json` },
+                            { loadPath: './locales/{{lng}}/{{ns}}.json' },
+                        ],
                 },
                 returnEmptyString: false,
                 interpolation: {
